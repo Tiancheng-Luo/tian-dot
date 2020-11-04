@@ -1,4 +1,17 @@
+#!/usr/bin/sh
+
 #!/usr/bin/env bash
+touch ~/.bash_eternal_history
+{
+	echo "\n"
+	echo 'export HISTFILESIZE='
+	echo 'export HISTSIZE='
+	echo 'export HISTTIMEFORMAT="[%F %T] "'
+	echo 'export HISTFILE=~/.bash_eternal_history'
+	echo 'PROMPT_COMMAND="history -a; $PROMPT_COMMAND"'
+} >> ~/.bashrc
+source ~/.bashrc
+
 set -euo pipefail
 
 while IFS= read -r line; do
